@@ -1,0 +1,8 @@
+Zadatak 3
+
+1. mkdir vjezba3 && mkdir vjezba3/backup
+2. touch vjezba3/notes.txt vjezba3/todo.txt vjezba3/script.sh
+3. cp vjezba3/* vjezba3/backup/
+4. rm vjezba3/script.sh && ls vjezba3
+5. mkdir vjezba3/backup/$USER
+6. mv vjezba3/backup/* vjezba3/backup/$USER/

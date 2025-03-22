@@ -1,0 +1,7 @@
+Zadatak 4
+
+1. mkdir vjezba4 && mkdir vjezba4/subfolder
+2. touch vjezba4/$HOSTNAME
+3. mv vjezba4/$HOSTNAME vjezba4/$USER
+4. mv vjezba4/$USER vjezba4/subfolder/
+5. rm /$PWD/vjezba4/subfolder/$USER

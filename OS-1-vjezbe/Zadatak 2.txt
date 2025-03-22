@@ -1,0 +1,9 @@
+Zadatak 2
+
+1. mkdir vjezba2 && touch vjezba2/file.txt
+2. cp vjezba2/file.txt vjezba2/file_copy.txt
+3. ls vjezba2
+4. rm vjezba2/file.txt && cd ~
+5. rmdir vjezba2
+
+Direktorij vjezba2 se ne može se jer postoji datoteka unutra.
