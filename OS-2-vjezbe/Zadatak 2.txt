@@ -1,0 +1,5 @@
+Zadatak 2
+
+1. cp -rv vjezba_2/data/. vjezba_2/backup
+2. cd vjezba_2/data
+ls -laS ../backup

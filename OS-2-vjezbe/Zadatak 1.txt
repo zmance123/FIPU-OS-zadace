@@ -1,0 +1,10 @@
+Zadatak 1
+
+1. mkdir -p vjezba_2/data 
+   mkdir vjezba_2/backup
+
+2. touch vjezba_2/data/script.js vjezba_2/data/style.css vjezba_2/data/.env
+
+3. echo 'console.log("Hello, World!")' > vjezba_2/data/script.js
+echo 'body { background-color: #f0f0f0; }' > vjezba_2/data/style.css
+echo 'VJEBE=OS' > vjezba_2/data/.env

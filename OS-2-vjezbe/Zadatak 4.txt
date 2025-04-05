@@ -1,0 +1,6 @@
+Zadatak 4
+
+1. cd /mnt/c/Code
+2. ls -laS
+3. ls -lSh
+4. ls -laRt --color
