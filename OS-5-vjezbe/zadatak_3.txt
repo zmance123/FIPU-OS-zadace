@@ -1,0 +1,19 @@
+sudo groupadd devteam
+
+sudo useradd -m developer1
+sudo useradd -m developer2
+sudo useradd -m developer3
+
+sudo usermod -a -G devteam developer1
+sudo usermod -a -G devteam developer2
+sudo usermod -a -G devteam developer3
+sudo usermod -a -G devteam $(whoami)
+
+cd ~
+mkdir project
+sudo chgrp devteam project
+chmod 764 project
+
+Vlasnik (7): čitanje, pisanje, izvršavanje (rwx)
+Grupa (6): čitanje, pisanje (rw-)
+Ostali (4): samo čitanje (r--)

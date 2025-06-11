@@ -1,0 +1,50 @@
+- Instalacija
+sudo apt update
+sudo apt install python3
+
+- Direktorij i skripte
+cd ~
+mkdir python3
+cd python3
+nano hello.py
+
+hello.py:
+
+#!/usr/bin/env python3
+import time
+
+print("Hello World!")
+time.sleep(100)
+print("Goodbye World!")
+
+
+- Pokretanje skripte
+chmod +x hello.py
+python3 hello.py &
+
+- Pracenje procesa
+htop
+
+PID: Jedinstveni identifikator procesa
+USER: Korisnik koji je pokrenuo proces
+PRI: Prioritet procesa (manji broj = viši prioritet)
+VIRT: Virtualna memorija koju proces koristi
+RES: Fizička memorija (RAM) koju proces koristi
+SHR: Podijeljena memorija
+S: Status procesa (R=running, S=sleeping, Z=zombie)
+%CPU: Postotak CPU-a koji proces koristi
+%MEM: Postotak memorije koji proces koristi
+TIME+: Ukupno CPU vrijeme potrošeno na proces
+COMMAND: Naredba/program koji se izvršava
+
+- 3 načina prekidanja procesa s kill:
+
+1. Pronađi PID i ubij proces (SIGTERM)
+ps aux | grep hello.py
+kill PID_BROJ
+
+2. Forsirano ubijanje (SIGKILL)
+kill -9 PID_BROJ
+
+3. Ubij po imenu procesa
+pkill -f hello.py

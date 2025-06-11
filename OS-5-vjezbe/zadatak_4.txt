@@ -1,0 +1,7 @@
+rwxr-xr-x   755  Vlasnik može čitati, pisati i izvršavati, grupa može čitati i izvršavati, a ostali korisnici mogu čitati i izvršavati
+rw-r--r--   644   Vlasnik može čitati i pisati, grupa može samo čitati, a ostali korisnici mogu samo čitati
+rwx------   700   Vlasnik može čitati, pisati i izvršavati, grupa i ostali korisnici ne mogu ništa
+rw-rw-r--   664   Vlasnik može čitati i pisati, grupa može čitati i pisati, a ostali korisnici mogu samo čitati
+rwxrwxrwx   777   Svi imaju sve dozvole - čitanje, pisanje i izvršavanje
+r--r--r--   444   Svi mogu samo čitati datoteku.
+rw-------   600   Vlasnik može čitati i pisati, grupa i ostali korisnici ne mogu ništa.

@@ -1,0 +1,43 @@
+
+- Kreiranje direktorija i datoteka
+
+cd ~
+mkdir old_dir new_dir
+cd old_dir
+touch file1.txt file2.txt file3.txt file4.txt file5.txt
+echo "Sadržaj 1" > file1.txt
+echo "Sadržaj 2" > file2.txt
+echo "Sadržaj 3" > file3.txt
+echo "Sadržaj 4" > file4.txt
+echo "Sadržaj 5" > file5.txt
+
+- Skripta
+
+nano move_files.sh
+
+#!/bin/bash
+
+OLD_DIR="$HOME/old_dir"
+NEW_DIR="$HOME/new_dir"
+
+for file in "$OLD_DIR"/*; do
+    if [ -f "$file" ]; then
+        filename=$(basename "$file")
+        mv "$file" "$NEW_DIR/"
+        echo "Datoteka $filename prebacena"
+        sleep 1
+    fi
+done
+
+- Pokretanje prioritet
+
+chmod +x move_files.sh
+
+# Normalan prioritet (NI = 0)
+./move_files.sh &
+
+# Veći prioritet (NI = -10, potrebne sudo privilegije)
+sudo nice -n -10 ./move_files.sh &
+
+# Manji prioritet (NI = 10)
+nice -n 10 ./move_files.sh &

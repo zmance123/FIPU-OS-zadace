@@ -1,0 +1,60 @@
+nano apply.sh
+
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo "Potrebno je tocno 2 argumenta!"
+    echo "Upotreba: $0 <dozvole> <putanja_do_datoteke>"
+    echo "Primjer: $0 rwxr-xr-- /home/korisnik/test.txt"
+    exit 1
+fi
+
+PERMISSIONS=$1
+FILE_PATH=$2
+
+if [ ${#PERMISSIONS} -ne 9 ]; then
+    echo "Dozvole moraju imati tocno 9 znakova!"
+    exit 1
+fi
+
+convert_permission() {
+    local perm=$1
+    local result=0
+    
+    if [ "${perm:0:1}" = "r" ]; then result=$((result + 4)); fi
+    if [ "${perm:1:1}" = "w" ]; then result=$((result + 2)); fi
+    if [ "${perm:2:1}" = "x" ]; then result=$((result + 1)); fi
+    
+    echo $result
+}
+
+owner_perm=$(convert_permission "${PERMISSIONS:0:3}")
+group_perm=$(convert_permission "${PERMISSIONS:3:3}")
+other_perm=$(convert_permission "${PERMISSIONS:6:3}")
+
+octal_perm="${owner_perm}${group_perm}${other_perm}"
+
+echo "Znakovna reprezentacija: $PERMISSIONS"
+echo "Oktalna reprezentacija: $octal_perm"
+
+if [ ! -e "$FILE_PATH" ]; then
+    echo "Datoteka $FILE_PATH ne postoji!"
+    exit 1
+fi
+
+chmod "$octal_perm" "$FILE_PATH"
+
+if [ $? -eq 0 ]; then
+    echo "Dozvole uspjesno primijenjene na datoteku: $FILE_PATH"
+    ls -l "$FILE_PATH"
+else
+    echo "Nije moguce primijeniti dozvole na datoteku!"
+    exit 1
+fi
+
+
+
+chmod +x apply.sh
+touch test.txt
+
+./apply.sh rwxr-xr-- test.txt
